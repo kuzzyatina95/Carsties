@@ -1,4 +1,4 @@
-namespace AuctionService.DTOs;
+﻿namespace AuctionService.DTOs;
 
 public class UpdateAuctionDto
 {
@@ -7,5 +7,4 @@ public class UpdateAuctionDto
     public int? Year { get; set; }
     public string Color { get; set; }
     public int? Mileage { get; set; }
-
 }

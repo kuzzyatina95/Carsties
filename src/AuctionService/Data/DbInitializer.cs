@@ -1,7 +1,8 @@
-using AuctionService.Entities;
+﻿using AuctionService.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService.Data;
+
 public class DbInitializer
 {
     public static void InitDb(WebApplication app)
@@ -21,7 +22,8 @@ public class DbInitializer
             return;
         }
 
-        var auctions = new List<Auction>() {
+        var auctions = new List<Auction>()
+        {
             // 1 Ford GT
             new Auction
             {
