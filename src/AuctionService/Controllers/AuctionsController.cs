@@ -18,7 +18,8 @@ public class AuctionsController : ControllerBase
     private readonly IMapper _mapper;
     private readonly IPublishEndpoint _publishEndpoint;
 
-    public AuctionsController(AuctionDbContext context, IMapper mapper, IPublishEndpoint publishEndpoint)
+    public AuctionsController(AuctionDbContext context, IMapper mapper,
+        IPublishEndpoint publishEndpoint)
     {
         _context = context;
         _mapper = mapper;
@@ -44,7 +45,7 @@ public class AuctionsController : ControllerBase
         var auction = await _context.Auctions
             .Include(x => x.Item)
             .FirstOrDefaultAsync(x => x.Id == id);
-        
+
         if (auction == null) return NotFound();
 
         return _mapper.Map<AuctionDto>(auction);
@@ -67,8 +68,8 @@ public class AuctionsController : ControllerBase
 
         if (!result) return BadRequest("Could not save changes to the DB");
 
-        return CreatedAtAction(nameof(GetAuctionById), 
-            new {auction.Id}, newAuction);
+        return CreatedAtAction(nameof(GetAuctionById),
+            new { auction.Id }, newAuction);
     }
 
     [HttpPut("{id}")]
